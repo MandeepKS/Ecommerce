@@ -1,0 +1,94 @@
+@import 'partials/variables';
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $grey !important;
+}
+//Header
+.navbar {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+//Body
+.section{
+  &_hero{
+    background-color:$dark-grey;
+    padding: 20rem 0;
+    display: flex;
+    justify-content: center;
+    h1{
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    p{
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .cta-button{
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 0.5rem 2rem;
+      background-color: $dark-red;
+      color: white;
+      border: none;
+      border-radius: 0.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover{
+        background-color: darken($dark-red, 10%);
+      }
+    }
+  }
+  &_products{
+    margin-top: 8rem;
+    .row{
+      --bs-gutter-x:-1.5rem;
+      --bs-gutter-y:3.5rem;
+    }
+  }
+}
+.card {
+  border: none !important;
+  display: flex; 
+  justify-content: space-between; 
+  width: 80%; // Adjust width as needed
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: pointer;
+  &-body{
+    border: none;
+    padding: 1rem;
+    box-shadow: 0 -42px 70px rgba(0, 0, 0, 0.3);
+  }
+  
+  img{
+     border-radius: 0.2rem;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: all 0.5s ease-in-out;
+  }
+  &-title{
+    font-weight: 700 !important;
+  }
+  &-title ,&-text{
+    text-align: left;
+  }
+  &:hover img{
+    transform: scale(1.1);
+    
+  }
+}
+.sale-badge {
+  display: inline-block;
+  background-color: $dark-red;
+  color: white;
+  padding: 0.5rem 6rem;
+  font-size: 1rem;
+  font-weight: 700;
+  position: absolute;
+  top:2.7rem;
+  right: -4.5rem;
+  transform: rotate(43deg);
+}
