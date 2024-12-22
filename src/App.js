@@ -6,11 +6,11 @@ import Contact from './pages/Contact';
 import Footer from './components/Footer';
 // import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import Products from './pages/Products';
 import { Routes,Route} from "react-router-dom";
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import { CartProvider } from './context/CartContext';
+import Success from './pages/Success';
 function App() {
   return (
     <div className="App">
@@ -25,11 +25,11 @@ function App() {
         <main>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="products" element={<Products/>}/>
           <Route path="contact" element={ <Contact/>}/>
           <Route path="/product/:id" element={<IndividualProduct />} />    
           <Route path="/cart/:id" element={<Cart />} />    
-          <Route path="/cart" element={<Cart />} />    
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/success" element={<Success/>}/>    
         </Routes>
         </main>
         <Footer/>

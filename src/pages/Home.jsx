@@ -3,6 +3,7 @@ import { url } from '../components/Api'
 import { Link} from 'react-router-dom'
 function Home() {
   const [posts,setPosts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState(''); 
   // State for holding our loading state
   const [isLoading, setIsLoading] = useState(false);
   // State for holding our error state
@@ -30,6 +31,9 @@ function Home() {
     getData();
   },[]);
   
+  const filteredPosts = posts.filter((post) => 
+  post.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   if(isLoading){
     return <div>Loading posts</div>
   }
@@ -47,13 +51,19 @@ function Home() {
           </div> 
         <div className="section_products"  id="section_products">
           <div className="container">
+          
             <div className="row">
-              {posts.map((post) => {
-                let sale = parseFloat(post.price) - parseFloat(post.discountedPrice);            
+            <div className="input-group mb-3">
+            <input type="text" className="form-control" placeholder="Search for products" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} aria-label="Search for products"/>
+            <button className="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+          </div>
+          {filteredPosts.length > 0 ? (
+            filteredPosts.map((post) => {
+              let sale = parseFloat(post.price) - parseFloat(post.discountedPrice);        
                 return (
                 <div className="col-md-4 mb-4" key={post.id}>                   
                   <Link to={`/product/${post.id}`} style={{ textDecoration: 'none' }}>
-                    <div className="card h-100">
+                    <div className="card">
                       <img className="card-img-top img-fluid" src={post.image.url} alt={post.title}  style={{ maxHeight: '250px', objectFit: 'cover' }}/>
                       {(sale > 0) ? <span className="sale-badge">SALE</span>: <span/>}
                       <div className="card-body">
@@ -64,11 +74,16 @@ function Home() {
                   </Link>
                 </div>
                 );
-              })}
+              })
+          ) : (
+            <div className="col-md-12">
+              <h2>No products found</h2>
             </div>
+          )}
           </div>
         </div>
       </div>
-  )
+    </div>
+  );
 }
 export default Home;

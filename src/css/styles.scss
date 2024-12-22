@@ -11,6 +11,7 @@ body {
 
 //Body
 .section{
+  //Home hero section
   &_hero{
     background-color:$dark-grey;
     padding: 20rem 0;
@@ -25,21 +26,8 @@ body {
       font-size: 1.2rem;
       margin-bottom: 2rem;
     }
-    .cta-button{
-      font-size: 1.2rem;
-      font-weight: 700;
-      padding: 0.5rem 2rem;
-      background-color: $dark-red;
-      color: white;
-      border: none;
-      border-radius: 0.2rem;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      &:hover{
-        background-color: darken($dark-red, 10%);
-      }
-    }
   }
+  //Products section
   &_products{
     margin-top: 8rem;
     .row{
@@ -47,7 +35,101 @@ body {
       --bs-gutter-y:3.5rem;
     }
   }
+  // -----Cart Component-----
+  //Section order
+    &_order{
+      border: 1px solid black;
+      border-radius: 0.2rem;
+      padding: 1.2rem;
+      margin: 1.8rem 0;
+
+      &_card{
+        display: flex;
+        justify-content: flex-start;
+        img{
+          border-radius: 0.3rem;
+          height: 8rem;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      &_grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        width:20%;
+      }
+      &_title{
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+      }
+      &_price{
+        font-weight: 600;
+        margin-top: 0.5rem;
+      }
+      &_delete{
+        display: flex;
+        justify-content: flex-end;
+        width: 80%;
+        i{
+          cursor: pointer;
+        }
+      }
+      &_total{
+        display: flex;
+        justify-content: flex-start;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-top: 1rem;
+      }
+    }
+    //Empty cart
+    &_empty-cart{
+      margin-top: 6.5rem;
+      margin-bottom: 9rem;
+    }
+    //Section_shipping-details
+    &_shipping-details{
+      padding: 10rem 0;
+      margin-top: 6rem;
+      background-color:$extra-dark-grey;
+      color: white;      
+    }
+    //Success component
+    &_success{
+      padding: 5rem 0;
+      margin-top: 3rem;
+      h1{
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+      p{
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+    }
+    //Contact component
+    &_contact-us{
+      padding: 5rem 0;
+      margin-top: 3rem;
+      h2{
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+      p{
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+    }
 }
+//Footer
+.footer{
+  color:black;
+}
+
+//Global
 .card {
   border: none !important;
   display: flex; 
@@ -91,4 +173,35 @@ body {
   top:2.7rem;
   right: -4.5rem;
   transform: rotate(43deg);
+}
+.cta-button{
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.5rem 2rem;
+  background-color: $dark-red;
+  color: white;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    background-color: darken($dark-red, 10%);
+  }
+}
+.cta-button-white{
+  font-size: 1.2rem;
+  font-weight: 700;
+  width: 100%;
+  padding: 0.3rem 2rem;
+  background-color:white;
+  color: $extra-dark-grey;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  &:hover{
+    transition: all 0.5s ease-in-out;
+    background-color: $dark-red;
+    color: white;
+  }
 }
