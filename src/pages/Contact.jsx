@@ -18,7 +18,9 @@ import React, {useState} from 'react'
   const validate = () => {
     const validationErrors = {};
     if(!formData.fullname.trim()){
-      validationErrors.fullname = 'Please enter your name';
+      validationErrors.fullname = 'Please enter your full name';
+    } else if (formData.fullname.length < 3) {
+      validationErrors.fullname ='Minimum 3 characters required';
     }
      // Email validation
      if (!formData.email) {
@@ -35,11 +37,15 @@ import React, {useState} from 'react'
     // Subject validation
     if (!formData.subject.trim()) {
       validationErrors.subject = 'Subject is required';
+    }else if (formData.subject.length < 3) {
+      validationErrors.subject = 'Minimum 3 characters required';
     }
 
     // Message validation
     if (!formData.message.trim()) {
       validationErrors.message = 'Message is required';
+    }else if (formData.message.length < 3 ) {
+      validationErrors.message = 'Minimum 3 characters required';
     }
 
     return validationErrors;
